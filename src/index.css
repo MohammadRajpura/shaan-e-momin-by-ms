@@ -1,0 +1,55 @@
+/* Import Font Utility */
+@import url(fonts.css);
+
+:root {
+  /* Color Utility */
+  --primary: #2dc97a;
+  --secondary: #ff9933;
+  --tertiary: #fff;
+
+  --primary-gradient: linear-gradient(135deg, #2dc97a, #ff9933);
+
+  --primary-hover: rgb(45, 201, 122, 0.5);
+  --secondary-hover: rgb(255, 153, 51, 0.5);
+
+  --dark: #101420;
+
+  /* Font Utility */
+  --font-family-base: "Rubik", sans-serif;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  color: var(--dark);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
