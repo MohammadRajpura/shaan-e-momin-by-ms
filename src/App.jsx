@@ -1,14 +1,8 @@
-import { CircleQuestionMark, ShieldQuestionMark } from "lucide-react";
-import Button from "./components/Button/Index";
+import { RouterProvider } from "react-router-dom";
+import { appRouting } from "./@core/routing/routing";
 
 const App = () => {
-  return (
-    <div>
-      <Button color="secondary" fill="fill" type="submit">
-        <CircleQuestionMark size={16} />
-      </Button>
-    </div>
-  );
+  return <RouterProvider router={appRouting} />;
 };
 
 export default App;

@@ -22,6 +22,8 @@ body {
   font-family: var(--font-family-base);
   font-size: 14px;
   color: var(--dark);
+
+  background-color: var(--secondary-hover);
 }
 
 * {
@@ -52,4 +54,86 @@ h4,
 h5,
 h6 {
   font-weight: 700;
+}
+
+/* Auth Style */
+.auth-wrapper {
+  max-width: 430px;
+  margin: auto;
+  height: 100vh;
+  background-color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .banner-wrap {
+    padding: 46px;
+    img {
+      max-width: 326px;
+      object-fit: contain;
+      margin: auto;
+    }
+  }
+
+  .auth-part-wrap {
+    height: 100%;
+    width: 100%;
+    background-color: var(--tertiary);
+    border-top: 10px solid var(--secondary);
+    border-radius: 40px 40px 0 0;
+    padding: 75px 16px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.form-group {
+  .form-control {
+    margin-bottom: 1rem;
+    label {
+      font-weight: 500;
+      margin-bottom: 5px;
+      display: block;
+    }
+    .input-with-select {
+      box-shadow: 0 0 4px var(--primary);
+      height: 48px;
+      border-radius: 15px;
+      overflow: hidden;
+      select,
+      input {
+        border: none;
+        height: 100%;
+        outline: none;
+        font-family: var(--font-family-base);
+      }
+
+      input {
+        padding: 16px;
+      }
+
+      select {
+        padding: 16px;
+        border-right: 1px solid var(--primary-hover);
+      }
+    }
+  }
+}
+
+.my-button-wrap {
+  margin-top: 40px;
+}
+
+.auth-extra-info {
+  text-align: center;
+  margin-top: 30px;
+
+  label {
+    font-weight: 700;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 10px;
+  }
 }
