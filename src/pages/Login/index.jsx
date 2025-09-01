@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Button from "../../components/Button/Index";
 import { api } from "../../@core/APIs/api";
 import z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { CountryContext } from "../../@core/context/CountryContext";
 
 // ✅ Zod schema validation
 // - country_code: must be a string (dropdown)
@@ -15,7 +16,9 @@ const schema = z.object({
 
 const Login = () => {
   // Store list of country codes from API
-  const [countryCodes, setCountryCodes] = useState([]);
+  // const [countryCodes, setCountryCodes] = useState([]);
+
+  const { countryCode, loading } = useContext(CountryContext);
 
   // ✅ React Hook Form + Zod resolver
   // - register: connect inputs to form state
@@ -26,23 +29,6 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: zodResolver(schema) });
-
-  // ✅ Fetch country codes on first render
-  useEffect(() => {
-    api
-      .get("country-code-list")
-      .then((res) => {
-        console.log(res.data);
-
-        if (res.data.status == "success") {
-          // store API response in state
-          setCountryCodes(res.data.data);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
 
   // ✅ Form submit handler
   const onSubmit = (data) => {
@@ -76,9 +62,9 @@ const Login = () => {
             {/* Input with Country Code Dropdown */}
             <div className="input-with-select">
               {/* Show select only if countryCodes available */}
-              {countryCodes?.length > 0 && (
+              {countryCode?.length > 0 && (
                 <select {...register("country_code")}>
-                  {countryCodes.map((item, index) => {
+                  {countryCode.map((item, index) => {
                     return (
                       // Adding key for React list rendering
                       <option key={index} value={item.country_code}>
